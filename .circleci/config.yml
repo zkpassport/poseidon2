@@ -1,0 +1,36 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:20.13
+    steps:
+      - checkout
+      - run:
+          name: Install Bun
+          command: |
+            curl -sSL https://bun.sh/install | bash
+            echo 'export PATH=${HOME}/.bun/bin:${PATH}' >> $BASH_ENV
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "bun.lockb" }}
+            - v1-dependencies-
+      - run:
+          name: Install Dependencies
+          command: bun i --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "bun.lockb" }}
+      - run:
+          name: Lint
+          command: bun run lint
+      - run:
+          name: Run Tests
+          command: bun run test
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
