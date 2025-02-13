@@ -1,6 +1,6 @@
 # @zkpassport/poseidon2
 
-A blazing fast Poseidon2 implementation in TypeScript for the BN254 curve. This package provides both synchronous and asynchronous hash functions for efficient cryptographic operations.
+A fast Poseidon2 implementation in pure TypeScript for the BN254 curve.
 
 ## Installation
 
@@ -17,7 +17,7 @@ yarn add @zkpassport/poseidon2
 
 ## Usage
 
-The package provides both synchronous and asynchronous hash functions. The asynchronous version is recommended for better performance with large inputs, as it yields to the event loop during computation, whereas the synchronous version blocks execution.
+This package provides both synchronous and asynchronous Poseidon2 hash functions. The asynchronous version is recommended for hashing many inputs, as it yields to the event loop during computation, whereas the synchronous version blocks execution.
 
 ### Synchronous Usage
 
@@ -49,3 +49,12 @@ console.log(hash) // Returns a single bigint hash value
 - Zero dependencies
 - Efficient memory usage
 - Suitable for both Node.js and browser environments
+
+## Performance
+
+Hashrate comparison between TypeScript and WASM implementations:
+
+| Implementation       | Iterations | Time (sec) | Hashes/sec |
+| -------------------- | ---------- | ---------- | ---------- |
+| Poseidon2 TypeScript | 1,000,000  | ~140       | ~7,000     |
+| Poseidon2 WASM       | 1,000,000  | ~30        | ~32,000    |
