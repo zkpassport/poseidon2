@@ -1,6 +1,6 @@
 {
   "name": "@zkpassport/poseidon2",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A blazing fast Poseidon2 implementation in TypeScript for the BN254 curve",
   "license": "MIT",
   "type": "module",
