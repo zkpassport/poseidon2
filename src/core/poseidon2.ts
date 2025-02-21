@@ -1,5 +1,5 @@
-import { F1Field } from "./field"
-import type { Poseidon2Params } from "./poseidon2params"
+import { F1Field } from "./field.js"
+import type { Poseidon2Params } from "./poseidon2params.js"
 
 class Poseidon2 {
   params: Poseidon2Params
