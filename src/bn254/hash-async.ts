@@ -1,6 +1,6 @@
 type IHashOut = [bigint, bigint, bigint]
 
-import { getPoseidon2BN254 } from "./instance"
+import { getPoseidon2BN254 } from "./instance.js"
 
 export const F = getPoseidon2BN254().primeField
 

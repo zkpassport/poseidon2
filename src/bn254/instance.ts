@@ -1,7 +1,7 @@
-import { F1Field } from "../core/field"
-import { Poseidon2 } from "../core/poseidon2"
-import { getPoseidon2Params } from "../core/poseidon2params"
-import { MAT_DIAG4_M_1, MAT_INTERNAL4, RC4 } from "./constants"
+import { F1Field } from "../core/field.js"
+import { Poseidon2 } from "../core/poseidon2.js"
+import { getPoseidon2Params } from "../core/poseidon2params.js"
+import { MAT_DIAG4_M_1, MAT_INTERNAL4, RC4 } from "./constants.js"
 
 const bn254Field = new F1Field(
   BigInt("21888242871839275222246405745257275088548364400416034343698204186575808495617"),
