@@ -6,7 +6,8 @@
     "skipLibCheck": true,
     "target": "es2020",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "outDir": "./dist/esm",
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
