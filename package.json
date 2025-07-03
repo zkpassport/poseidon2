@@ -11,18 +11,17 @@
     "require": "./dist/cjs/index.cjs"
   },
   "files": [
-    "dist",
-    "src"
+    "dist/cjs",
+    "dist/esm"
   ],
   "scripts": {
     "test": "bun test tests/*.test.ts",
     "coverage": "bun test tests/*.test.ts --coverage",
     "lint": "eslint src tests --ext .ts",
     "format": "prettier . --write",
-    "build": "tsup && rimraf ./dist/esm && tsc -p tsconfig.json && bun run build:fix-aliases",
+    "build": "bun run build:cjs && bun run build:esm",
     "build:cjs": "tsup",
-    "build:esm": "rimraf ./dist/esm && tsc -p tsconfig.json && bun run build:fix-aliases",
-    "build:fix-aliases": "bun run scripts/fix-aliases.mjs",
+    "build:esm": "rimraf ./dist/esm && tsc && bun run scripts/fix-aliases.mjs",
     "prepublishOnly": "bun run lint && bun run test && bun run build"
   },
   "devDependencies": {
